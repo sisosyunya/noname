@@ -1,15 +1,8 @@
+
 <template>
-  <hello-world />
+<div id="nav">
+    <router-link to="/">トップ</router-link>|
+    <router-link to="/about">アバウト</router-link>
+    <router-link to="/login">ログイン</router-link>
+</div>
 </template>
-
-<script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-    },
-  }
-</script>
