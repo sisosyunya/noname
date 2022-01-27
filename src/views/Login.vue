@@ -4,7 +4,8 @@
     <div id="nav">
       <router-link to="/">トップ</router-link>|
       <router-link to="/login">ログイン</router-link>|
-      <router-link to="/about">アバウト</router-link>
+      <router-link to="/about">アバウト</router-link>|
+      <router-link to="/signup">登録画面</router-link>
     </div>
 
     <v-card width="400px" class="mx-auto mt-5">
@@ -15,8 +16,8 @@
         <v-form>
           <v-text-field
             prepend-icon="mdi-account-circle"
-            label="ユーザ名"
-            v-model="name"
+            label="メールアドレス"
+            v-model="email"
           />
 
           <v-text-field
@@ -29,7 +30,10 @@
         </v-form>
         <v-card-actions>
           <!-- <vcard width="400px" class="mx-auto mt-5"> -->
-          <v-btn class="info" @click="submit">ログイン</v-btn>
+          <v-btn class="info" color="accent" elevation="8" @click="dologin">ログイン</v-btn>
+          <v-btn class="signup" color="accent"  outlined elevation="8" @click="signup">登録</v-btn>
+          <v-btn class="signout" color="black"  outlined elevation="8" @click="signout">サインアウト</v-btn>
+          
         </v-card-actions>
       </v-card-text>
     </v-card>
@@ -37,14 +41,16 @@
 </template>
 
 <script>
-console.log("aaaa");
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+// import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+
 export default {
   name: "App",
 
   data: () => {
     return {
       showPassword: false,
-      name: "",
+      email: "",
       password: "",
     };
   },
@@ -52,6 +58,38 @@ export default {
     submit() {
       console.log(this.name, this.password);
     },
+    async dologin(){
+      const auth = getAuth();
+      await signInWithEmailAndPassword(auth,this.name,this.password)
+        .then(() =>{
+          alert("ログイン完了しました");
+          this.$router.push("/");
+        })
+        .catch(function(error){
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+        })
+    },
+    signup(){
+      console.log('あああ')
+    },
+    async signout(){
+      const auth = getAuth();
+      await signOut(auth)
+        .then(() => {
+          alert("signout");
+        })
+        .catch(function(error) {
+          //  //失敗の処理
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+          alert("ログインに失敗しました");
+        });
+    }
   },
 };
 </script>
