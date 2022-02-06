@@ -4,6 +4,7 @@
     <v-app id="inspire">
       <v-card>
         <v-navigation-drawer dark permanent expand-on-hover>
+          
           <v-list>
             <v-list-item class="aaa">
               <!-- 顔画像 -->
