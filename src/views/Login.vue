@@ -1,14 +1,21 @@
 
 <template>
   <v-app>
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">トップ</router-link>|
       <router-link to="/login">ログイン</router-link>|
       <router-link to="/about">アバウト</router-link>|
       <router-link to="/signup">登録画面</router-link>
-    </div>
-
-    <v-card width="400px" class="mx-auto mt-5">
+    </div> -->
+      <v-app-bar dark app>
+    <v-toolbar-title>About syunya</v-toolbar-title>
+        <v-btn router-link to="/">ホーム</v-btn>
+    <v-btn router-link to="/login">ログイン</v-btn>
+    <v-btn router-link to="/signup">登録</v-btn>
+    <v-btn router-link to="/like">趣味</v-btn>
+  </v-app-bar>
+  <v-main>
+    <v-card width="400px"  class="mx-auto mt-5">
       <v-card-title>
         <h1 class="display-1">ログイン</h1>
       </v-card-title>
@@ -37,6 +44,7 @@
         </v-card-actions>
       </v-card-text>
     </v-card>
+  </v-main>
   </v-app>
 </template>
 

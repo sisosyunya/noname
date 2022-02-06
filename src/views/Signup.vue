@@ -1,12 +1,14 @@
 
 <template>
     <v-app>
-        <div id="nav">
-            <router-link to="/">トップ</router-link>|
-            <router-link to="/login">ログイン</router-link>|
-            <router-link to="/about">アバウト</router-link>|
-        </div>
-
+  <v-app-bar dark app>
+    <v-toolbar-title>About syunya</v-toolbar-title>
+    <v-btn router-link to="/">ホーム</v-btn>
+    <v-btn router-link to="/login">ログイン</v-btn>
+    <v-btn router-link to="/signup">登録</v-btn>
+    <v-btn router-link to="/like">趣味</v-btn>
+  </v-app-bar>
+<v-main>
     <v-card width="400px" class="mx-auto mt-5">
         <v-card-title>
             <h1 class="display-1">新規登録</h1>
@@ -36,6 +38,7 @@
     <!-- <v-row justify="center">
         <v-date-picker v-model="picker"></v-date-picker>
     </v-row> -->
+</v-main>
     </v-app>
 </template>
 
@@ -68,3 +71,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+</style>

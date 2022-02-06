@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import About from '../views/About.vue'
 import Signup from '../views/Signup.vue'
+import Like from '../views/Like.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +28,11 @@ const routes = [
     path:'/signup',
     name:'Signup',
     component:Signup
+  },
+  {
+    path:'/like',
+    name:'Like',
+    component:Like
   }
 ]
 
